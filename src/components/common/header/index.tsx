@@ -31,8 +31,11 @@ const navList = [
 ];
 const Header = () => {
   const renderNavList = () => {
-    return navList.map((navitem) => (
-      <div className='mx-8 text-[color:var(--ast-global-color-3)] font-light'>
+    return navList.map((navitem, i) => (
+      <div
+        className='mx-8 text-[color:var(--ast-global-color-3)] font-light'
+        key={i}
+      >
         <Link href={navitem.to}>{navitem.title}</Link>
       </div>
     ));

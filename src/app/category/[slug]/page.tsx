@@ -26,6 +26,7 @@ const CategoryPages = () => {
       <Link
         href={""}
         className='text-[color:var(--ast-global-color-0)] text-xs'
+        key={i}
       >
         The Frightening Affect of Climate Change on Government
       </Link>
