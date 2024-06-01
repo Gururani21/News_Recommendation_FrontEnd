@@ -10,23 +10,24 @@ const navList = [
   },
   {
     title: "Technology",
-    to: "/",
+    to: "/category/Technology",
   },
   {
     title: "Health",
-    to: "/",
+    to: "/category/Health",
+    
   },
   {
     title: "Automobile",
-    to: "/",
+    to: "/category/Automobile",
   },
-  {
-    title: "Stock Market",
-    to: "/",
-  },
+  // {
+  //   title: "Stock Market",
+  //   to: "/",
+  // },
   {
     title: "Politics",
-    to: "/",
+    to: "/category/Politics",
   },
 ];
 const Header = () => {
