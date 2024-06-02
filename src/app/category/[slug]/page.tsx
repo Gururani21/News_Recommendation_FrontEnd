@@ -1,9 +1,16 @@
+import Header from "@/components/common/header/index";
 import CardWithTopImg from "@/components/ui/Card/CardWithTopImg";
 import DivSeprater from "@/components/ui/DivSeprater/DivSeprater";
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/router";
+
 
 const CategoryPages = () => {
+
+  const router = useRouter();
+  const { category } = router.query;
+
   const renderCategoryName = () => {
     return (
       <div className='pt-16 px-8'>
@@ -24,7 +31,8 @@ const CategoryPages = () => {
   const renderRecentlyViewed = () => {
     return Array.from(Array(5).keys()).map((item, i) => (
       <Link
-        href={""}
+        // href={"/politics"}
+        href={`/${category}`}
         className='text-[color:var(--ast-global-color-0)] text-xs'
         key={i}
       >
@@ -34,6 +42,7 @@ const CategoryPages = () => {
   };
   return (
     <div>
+      <Header />
       <div className='grid grid-cols-4 gap-8'>
         <div className='col-span-3 pr-12 border-r-2 '>
           <div className=''>{renderCategoryName()}</div>

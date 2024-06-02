@@ -6,7 +6,7 @@ const Post = () => {
   return (
     <div className='my-8'>
       <PostHeaders />
-      <div className='grid grid-cols-3 gap-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
         <CardWithTopImg />
         <CardWithTopImg />
         <CardWithTopImg />
