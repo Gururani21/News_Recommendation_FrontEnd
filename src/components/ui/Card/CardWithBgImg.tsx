@@ -1,7 +1,13 @@
 import React from "react";
 import Badge from "../Badge/Badge";
+import { NewsDataType } from "@/types/news";
 
-const CardWithBgImg = () => {
+
+export interface CardWithBgImgPropType {
+  news: NewsDataType
+}
+const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
+  if(!news)return;
   return (
     <div className=' relative'>
       {/* Overlay */}
@@ -14,18 +20,18 @@ const CardWithBgImg = () => {
             <Badge text='Health' />
           </div>
           <div className='font-bold text-2xl'>
-            15 Shocking Elon Musk Tweets About Stock Market
+          {news.title}
           </div>
           <div className='flex justify-normal gap-4 text-xs font-extralight'>
-            <span>akbarh </span>
-            <span>June 28, 2021</span>
+            <span>{news.creator} </span>
+            <span>{news.pubDate}</span>
           </div>
         </div>
       </div>
       <img
         className='  min-h-[450px] w-full object-cover shadow-md rounded-sm'
         src={
-          "https://websitedemos.net/business-blog-04/wp-content/uploads/sites/895/2021/06/business-blog-latest-news-image-1.jpg"
+        news.image_url||  "https://websitedemos.net/business-blog-04/wp-content/uploads/sites/895/2021/06/business-blog-latest-news-image-1.jpg"
         }
         alt='/'
       />
