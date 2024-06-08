@@ -12,23 +12,24 @@ const navList = [
   },
   {
     title: "Technology",
-    to: "/technology",
+    to: "/category/Technology",
   },
   {
     title: "Health",
-    to: "/health",
+    to: "/category/Health",
+    
   },
   {
     title: "Automobile",
-    to: "/automobile",
+    to: "/category/Automobile",
   },
-  {
-    title: "Stock Market",
-    to: "/stockmarket",
-  },
+  // {
+  //   title: "Stock Market",
+  //   to: "/",
+  // },
   {
     title: "Politics",
-    to: "/politics",
+    to: "/category/Politics",
   },
 ];
 const Header = () => {

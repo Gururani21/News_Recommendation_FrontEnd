@@ -1,30 +1,43 @@
+"use client";
 import Header from "@/components/common/header/index";
 import CardWithTopImg from "@/components/ui/Card/CardWithTopImg";
 import DivSeprater from "@/components/ui/DivSeprater/DivSeprater";
+import { NewsDataType } from "@/types/news";
+import appconfig from "@/utils/config";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
-import { useRouter } from "next/router";
-
+import { useParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 const CategoryPages = () => {
-
-  const router = useRouter();
-  const { category } = router.query;
-
+  const params = useParams();
+  const [data, setdata] = useState<NewsDataType[]>([]);
   const renderCategoryName = () => {
     return (
       <div className='pt-16 px-8'>
         <h2 className='text-3xl font-bold  text-[color:var(--ast-global-color-0)]'>
-          Politics
+          {params.slug}
         </h2>
         <div className='border-b-2  my-8'></div>
       </div>
     );
   };
+  const getNewsData = async () => {
+    const res = (await axios.get(appconfig.url + "/getNews")).data;
+    console.log(res);
+    if (res.data != null) {
+      setdata(res.data);
+    }
+  };
+  useEffect(() => {
+    getNewsData();
+
+    return () => {};
+  }, []);
 
   const renderCardsList = () => {
-    return Array.from(Array(10).keys()).map((item, i) => (
-      <CardWithTopImg key={i} />
+    return data.map((item, i) => (
+      <CardWithTopImg key={i}  news={item}/>
     ));
   };
 
@@ -32,7 +45,8 @@ const CategoryPages = () => {
     return Array.from(Array(5).keys()).map((item, i) => (
       <Link
         // href={"/politics"}
-        href={`/${category}`}
+        // href={`/${category}`}
+         href={""}
         className='text-[color:var(--ast-global-color-0)] text-xs'
         key={i}
       >
