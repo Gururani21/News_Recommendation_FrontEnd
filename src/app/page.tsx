@@ -81,7 +81,7 @@ export default function Home() {
       <Header />
         <HeroSection />
         <DivSeprater />
-        <BentoGridPost />
+        <BentoGridPost  postheader={{title:"Sports", link:""}} />
         <DivSeprater />
         <Post />
       </main>
