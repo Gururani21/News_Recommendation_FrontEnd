@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import React from "react";
+import React, {useState} from "react";
 import Footer from "@/components/common/Footer/index";
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,22 +16,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
-  // const [isPanelOpen, setIsPanelOpen] = useState(false);
-  // const [font, setFont] = useState('font-sans');
-  // const fonts = [
-  //   { name: 'Sans', class: 'font-sans' },
-  //   { name: 'Serif', class: 'font-serif' },
-  //   { name: 'Mono', class: 'font-mono' }
-  // ];
-  // const handleFontChange = (fontClass:any) => {
-  //   setFont(fontClass);
-  // };
+ 
 
 
   return (
     <html lang='en'>
       {/* <body className={inter.className}> */}
       <body>
+      
         <div className='px-12 max-w-screen-xl mx-auto'>
          
           <main>{children}</main>
@@ -37,6 +31,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
         <div className=' bg-gray-900'>
           <Footer />
         </div>
+  
       </body>
     </html>
   );
