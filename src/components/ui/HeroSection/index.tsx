@@ -35,8 +35,11 @@ const HeroSection = () => {
     return <Loader />;
   }
   return (
-    <div className='my-8'>
-      <div className='grid grid-cols-2 gap-4'>
+    <div className= 'my-8'>
+      
+
+
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         <div className='h-full'>
           <CardWithBgImg news={data[0]} />
         </div>

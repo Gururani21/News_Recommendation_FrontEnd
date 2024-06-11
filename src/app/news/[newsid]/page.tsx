@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/components/common/header/index";
 import Badge from "@/components/ui/Badge/Badge";
 import CardWithTopImg from "@/components/ui/Card/CardWithTopImg";
 import { NewsDataType } from "@/types/news";
@@ -28,7 +29,7 @@ const NewsArticle = () => {
   }, []);
 
   if (data === null) {
-    return <>Loading .............</>;
+    return <>Loading ...</>;
   }
   const rendercontent = (content: string[]) => {
     return content.map((x) => (
@@ -40,6 +41,9 @@ const NewsArticle = () => {
     return keywords.map((x) => <Badge text={x}></Badge>);
   };
   return (
+    <>
+    <Header />
+    {
     data && (
       <div>
         <div className=' bg-[color:var(--ast-global-color-4)] pb-8'>
@@ -79,7 +83,10 @@ const NewsArticle = () => {
           </div>
         </div>
       </div>
+      
     )
+   }
+    </>
   );
 };
 

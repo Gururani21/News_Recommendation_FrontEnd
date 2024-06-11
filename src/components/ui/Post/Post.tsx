@@ -11,7 +11,7 @@ const Post = () => {
   const [newslst, setnewslst] = useState<NewsDataType[]>([]);
   const [isLoading, setisLoading] = useState(false);
   const renderBadge = (res: string[]) => {
-    return res.map((x) => <Badge text={x.toLowerCase()} />);
+    return res.map((x) => <Badge text={x.toUpperCase()} />);
   };
 
   const getNews = async () => {
@@ -31,13 +31,16 @@ const Post = () => {
 
   const renderNews = () => {
     const res = newslst.slice(1, 4);
-    return res.map((x) => <CardWithTopImg news={x} />);
-  };
+    return (    
+          res.map((x) => <CardWithTopImg news={x} />
+    ))
+    
+  }
 
   return (
     <div className='my-8'>
       <PostHeaders title='Health' link='link' />
-      <div className='grid grid-cols-3 gap-4'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
         {renderNews()}
         {/* <CardWithTopImg />
         <CardWithTopImg /> */}

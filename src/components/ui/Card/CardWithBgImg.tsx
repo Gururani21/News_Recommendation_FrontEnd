@@ -17,7 +17,7 @@ const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
             {/* <span className='inline-flex items-center gap-x-1.5 py-1 rounded-full text-xs font-extralight px-4 bg-[color:var(--ast-global-color-3)] text-white'>
               Badge
             </span> */}
-            <Badge text='Health' />
+            <Badge text= {news.category}/>
           </div>
           <div className='font-bold text-2xl'>
           {news.title}

@@ -53,7 +53,7 @@ export function BentoGridPost({ postheader }: BenotGridPostPropTypes) {
   return (
     <>
       <PostHeaders title={postheader.title} link={postheader.link} />
-      <BentoGrid className=' '>
+      <BentoGrid className=''>
         {newslst.map((item, i) => (
           <BentoGridItem
             key={i}
