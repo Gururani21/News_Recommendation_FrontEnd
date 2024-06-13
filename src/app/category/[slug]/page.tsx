@@ -23,7 +23,11 @@ const CategoryPages = () => {
     );
   };
   const getNewsData = async () => {
-    const res = (await axios.get(appconfig.url + "/getNews")).data;
+    const res = (
+      await axios.get(appconfig.url + "/getNews", {
+        params: { image_url: true, category: params.slug.toString().toLowerCase() },
+      })
+    ).data;
     console.log(res);
     if (res.data != null) {
       setdata(res.data);

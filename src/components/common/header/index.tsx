@@ -27,8 +27,8 @@ const navList = [
     to: "/category/Health",
   },
   {
-    title: "Automobile",
-    to: "/category/Automobile",
+    title: "Sports",
+    to: "/category/Sports",
   },
   // {
   //   title: "Stock Market",

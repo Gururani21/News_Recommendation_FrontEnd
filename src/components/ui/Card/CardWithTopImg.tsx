@@ -48,7 +48,7 @@ export const CardWithTopImg = ({ news=defaultData}: CardWithTopImgPropType) => {
     <div className=' border-b-[1px]  rounded-sm  bg-white  dark:bg-gray-500 dark:border-gray-700 '>
       <a href='#'>
         <img
-          className='rounded-sm  h-40 w-full'
+          className='rounded-sm  h-min w-full object-cover'
           src={
             news.image_url
               ? news.image_url
