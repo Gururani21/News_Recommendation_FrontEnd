@@ -57,7 +57,7 @@ const CategoryPages = () => {
   return (
     <div>
       <Header />
-      <div className='grid grid-cols-4 gap-8'>
+      <div className='px-6 md:px-12 grid grid-cols-4 gap-8'>
         <div className='col-span-3 pr-12 border-r-2 '>
           <div className=''>{renderCategoryName()}</div>
           <div className=''>

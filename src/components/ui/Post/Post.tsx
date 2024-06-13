@@ -38,7 +38,7 @@ const Post = () => {
   }
 
   return (
-    <div className='my-8'>
+    <div className='pb-8'>
       <PostHeaders title='Health' link='link' />
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
         {renderNews()}

@@ -1,22 +1,26 @@
+"use client";
 import React from "react";
 import Badge from "../Badge/Badge";
 import { NewsDataType } from "@/types/news";
+
+
 
 
 export interface CardWithBgImgPropType {
   news: NewsDataType
 }
 const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
+  console.log("news from card", news)
   if(!news)return;
+
   return (
-    <div className=' relative'>
+ 
+    <div className=' relative hover:cursor-pointer'>
       {/* Overlay */}
       <div className='absolute w-full h-full   text-white'>
         <div className='absolute bottom-4 right-4 left-4'>
           <div>
-            {/* <span className='inline-flex items-center gap-x-1.5 py-1 rounded-full text-xs font-extralight px-4 bg-[color:var(--ast-global-color-3)] text-white'>
-              Badge
-            </span> */}
+            
             <Badge text= {news.category}/>
           </div>
           <div className='font-bold text-2xl'>
@@ -36,6 +40,7 @@ const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
         alt='/'
       />
     </div>
+
   );
 };
 

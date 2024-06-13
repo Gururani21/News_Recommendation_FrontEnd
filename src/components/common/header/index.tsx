@@ -1,3 +1,4 @@
+import { useTheme } from "@/app/context/ThemeContext";
 import Logoicon from "@/components/icon/Logoicon";
 import LoginForm from "@/components/ui/LoginForm/index";
 import Modal from "@/components/ui/Modal/index";
@@ -43,24 +44,28 @@ const Header = () => {
   const [modalOpen, setModalOpen] = useState(false)
 
   const [isLogin, setIsLogin] = useState(true)
+  const { font, backgroundColor, textColor } = useTheme();
+
  
   const renderNavList = () => {
     return navList.map((navitem, i) => (
       <div
-        className='mx-0 md:mx-8 text-[color:var(--ast-global-color-3)] font-light font-semibold'
+        // className='mx-0 md:mx-8 text-[color:var(--ast-global-color-3)] font-light font-semibold'
         key={i}
+        className= {`mx-0 md:mx-8 ${font} font-semibold`}
+
       >
         <Link href={navitem.to}>{navitem.title}</Link>
       </div>
     ));
   };
   return (
-    <nav className='px-0 md:px-12 max-w-screen-xl mx-auto'>
+    <nav className={` px-0 md:px-12 max-w-screen-xl mx-auto`}>
 
 
 
 
-      <div className='flex justify-between md:justify-between my-4 items-center'>
+      <div className='flex justify-between md:justify-between py-4 items-center'>
         <div className=''></div>
         <div className=''>
    
@@ -89,7 +94,7 @@ const Header = () => {
         </div>
 }
 
-      <div className='hidden md:block'>
+      <div className={`hidden md:block`}>
         <div className='flex justify-center'> {renderNavList()} </div>
       </div>
 
