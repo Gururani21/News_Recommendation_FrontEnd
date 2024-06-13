@@ -69,8 +69,18 @@ export function BentoGridPost({ postheader }: BenotGridPostPropTypes) {
   );
 }
 const Skeleton = (img: string|null) => (
-<div className="relative w-full h-full">
-    <img src={img||'/image-1.jpg'} alt="News Img" className="absolute w-full h-full object-cover"/>
+
+<div className=" w-full h-20">
+    {/* <div className="relative w-full h-20"> */}
+
+
+    <img src={img||'/image-1.jpg'} 
+    alt="News Img" 
+    // className=" w-full h-full object-cover absolute "
+    className=" w-full h-20 "
+
+    />
+
 </div>
 
 );

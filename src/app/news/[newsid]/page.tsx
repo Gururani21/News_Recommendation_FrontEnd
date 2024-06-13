@@ -1,13 +1,18 @@
 "use client";
+import { useTheme } from "@/app/context/ThemeContext";
 import Header from "@/components/common/header/index";
 import Badge from "@/components/ui/Badge/Badge";
 import CardWithTopImg from "@/components/ui/Card/CardWithTopImg";
+import Loader from "@/components/ui/Loader/index";
 import { NewsDataType } from "@/types/news";
 import appconfig from "@/utils/config";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+
+
 const NewsArticle = () => {
+  const { font, backgroundColor, textColor } = useTheme();
   const [data, setdata] = useState<NewsDataType>();
   const params = useParams();
   const renderMustReadCards = () => {
@@ -28,8 +33,10 @@ const NewsArticle = () => {
     return () => {};
   }, []);
 
-  if (data === null) {
-    return <>Loading ...</>;
+  if (data == null) {
+    return <>
+    <Loader />
+    </>;
   }
   const rendercontent = (content: string[]) => {
     return content.map((x) => (
@@ -37,7 +44,7 @@ const NewsArticle = () => {
     ));
   };
   const renderKeywords = (keywords: string[]) => {
-    if (keywords === null) return;
+    if (keywords == null) return;
     return keywords.map((x) => <Badge text={x}></Badge>);
   };
   return (
@@ -45,9 +52,9 @@ const NewsArticle = () => {
     <Header />
     {
     data && (
-      <div>
-        <div className=' bg-[color:var(--ast-global-color-4)] pb-8'>
-          <div className='max-w-3xl mx-auto bg-[color:var(--ast-global-color-5)] pb-12'>
+      <div className = {`${font} ${backgroundColor} ${textColor}`}>
+        <div className='px-6 md:px-12 pb-8'>
+          <div className='max-w-3xl mx-auto  pb-12'>
             <div className='w-4/5 mx-auto'>
               <div className=' h-full  mx-auto  my-8'>
                 <img
@@ -77,7 +84,7 @@ const NewsArticle = () => {
             <h2 className='text-2xl font-bold  text-[color:var(--ast-global-color-0)] my-8'>
               Must Read
             </h2>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
               {renderMustReadCards()}
             </div>
           </div>
