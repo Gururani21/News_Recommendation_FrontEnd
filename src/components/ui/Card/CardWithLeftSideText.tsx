@@ -5,20 +5,21 @@ import Link from 'next/link';
 
 
 export interface CardWithLeftSideTextPropType{
-  news:NewsDataType
+  news:NewsDataType,
+  isSearch?:boolean
 
 }
 const renderBadge = (res:string[])=>{
   return res.map(x=>  <Badge text= {x.toLowerCase()} />)
 }
-const CardWithLeftSideText = ({news}:CardWithLeftSideTextPropType) => {
+const CardWithLeftSideText = ({news, isSearch=false}:CardWithLeftSideTextPropType) => {
   return (
     <Link 
     href={"/news/" + news.news_id} 
     passHref
     >
     <div className='w-full lg:max-w-full lg:flex rounded-md hover:cursor:pointer'>
-      <div
+    <div
         className='min-h-fit lg:w-60 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'
         style={{
           backgroundImage:

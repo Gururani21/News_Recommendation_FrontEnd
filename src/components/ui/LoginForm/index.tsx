@@ -19,7 +19,7 @@ const schema = Yup.object().shape({
 });
 
 export interface LoginProps {
-  closeModel: () => void;
+  closeModel?: () => void;
 }
 const index = ({ closeModel }: LoginProps) => {
   const styles = {
@@ -47,7 +47,7 @@ const index = ({ closeModel }: LoginProps) => {
               toast(
                 "Welcome back! You have logged in successfully. Enjoy your session. !"
               );
-              closeModel();
+            //  closeModel();
               // ...
             })
             .catch((err) => {

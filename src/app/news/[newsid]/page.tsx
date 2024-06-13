@@ -12,12 +12,30 @@ import React, { useEffect, useState } from "react";
 
 
 const NewsArticle = () => {
+  //@ts-ignore
   const { font, backgroundColor, textColor } = useTheme();
   const [data, setdata] = useState<NewsDataType>();
+  const  [mustReadlst, setmustRead]= useState<NewsDataType[]>([])
   const params = useParams();
+
+  const getheroSection = async () => {
+   // setIsLoading(true);
+    const res = (
+      await axios.get(appconfig.url + "/getNews", {
+        params: { image_url: true, category: "sports" },
+      })
+    ).data;
+    console.log(res);
+    setmustRead(res.data);
+  //  setIsLoading(false);
+  };
+  useEffect(() => {
+    getheroSection();
+  },[]);
+
   const renderMustReadCards = () => {
-    return Array.from(Array(5).keys()).map((item, i) => (
-      <CardWithTopImg key={i} />
+    return mustReadlst.slice(1, 5).map((item, i) => (
+      <CardWithTopImg key={i}  news={item}/>
     ));
   };
   const getNewsData = async () => {
@@ -82,9 +100,9 @@ const NewsArticle = () => {
           </div>
           <div className='max-w-3xl mx-auto bg-[color:var(--ast-global-color-4)] mt-12'>
             <h2 className='text-2xl font-bold  text-[color:var(--ast-global-color-0)] my-8'>
-              Must Read
+              Recommended News
             </h2>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4'>
               {renderMustReadCards()}
             </div>
           </div>
