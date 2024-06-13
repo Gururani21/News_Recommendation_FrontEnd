@@ -45,6 +45,7 @@ const Header = () => {
   const [isLogin, setIsLogin] = useState(true)
  
   const renderNavList = () => {
+    
     return navList.map((navitem, i) => (
       <div
         className='mx-0 md:mx-8 text-[color:var(--ast-global-color-3)] font-light font-semibold'

@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Modal = ({ show, onClose, children }) => {
+export interface ModalInterface{
+  show:boolean,
+  onClose: Function,
+  children:React.ReactNode
+}
+const Modal = ({ show, onClose, children }:ModalInterface) => {
   if (!show) return null;
 
   return (
