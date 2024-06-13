@@ -78,7 +78,7 @@ const Skeleton = (img: string|null) => (
     <img src={img||'/image-1.jpg'} 
     alt="News Img" 
     // className=" w-full h-full object-cover absolute "
-    className=" w-full h-20 "
+    className=" w-full h-32  object-cover"
 
     />
 

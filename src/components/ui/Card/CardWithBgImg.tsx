@@ -13,20 +13,15 @@ const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
   if(!news)return;
 
   return (
-    <Link 
-    href={"/news/" + news.news_id} 
-    passHref>
-      <div className=' relative hover:cursor-pointer'>
+    <Link href={"/news/" + news.news_id} passHref>
+      <div className=' relative hover:cursor-pointer '>
         {/* Overlay */}
         <div className='absolute w-full h-full   text-white'>
           <div className='absolute bottom-4 right-4 left-4'>
             <div>
-              
-              <Badge text= {news.category}/>
+              <Badge text={news.category} />
             </div>
-            <div className='font-bold text-2xl'>
-            {news.title}
-            </div>
+            <div className='font-bold text-2xl'>{news.title}</div>
             <div className='flex justify-normal gap-4 text-xs font-extralight'>
               <span>{news.creator} </span>
               <span>{news.pubDate}</span>
@@ -36,13 +31,13 @@ const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
         <img
           className='  min-h-[450px] w-full object-cover shadow-md rounded-sm'
           src={
-          news.image_url||  "https://websitedemos.net/business-blog-04/wp-content/uploads/sites/895/2021/06/business-blog-latest-news-image-1.jpg"
+            news.image_url ||
+            "https://websitedemos.net/business-blog-04/wp-content/uploads/sites/895/2021/06/business-blog-latest-news-image-1.jpg"
           }
           alt='/'
         />
       </div>
     </Link>
-
   );
 };
 
