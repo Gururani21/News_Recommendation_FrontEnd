@@ -42,6 +42,7 @@ export default function RootLayout({
         <div className=' bg-gray-900'>
           <Footer />
         </div>
+        </div>
 
         
         </ThemeProvider>

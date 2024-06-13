@@ -10,7 +10,7 @@ const midColors = ["slate-500", "gray-500", "green-500", "slate-500", "sky-500",
 const darkClr = ["bg-black", "bg-gray-800", "bg-green-800", "bg-white", "bg-sky-800", "bg-amber-800"]
 
 const index = ({ onClose }) => {
-  const { handleFontChange, handleBackgroundColorChange, handleTextColorChange } = useTheme();
+  const { font, backgroundColor, handleFontChange, handleBackgroundColorChange, handleTextColorChange } = useTheme();
 
   return (
     // <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 ">
@@ -22,13 +22,13 @@ const index = ({ onClose }) => {
         <h6 className=" mb-4">Customize </h6>
         <div className="mb-4">
           <h3 className="text-base mb-2">Try Other Fonts</h3>
-          {fonts.map((font) => (
+          {fonts.map((font_ele) => (
             <button
-              key={font}
-              onClick={() => handleFontChange(font)}
-              className={`${font} px-2 py-1 m-1 border rounded`}
+              key={font_ele}
+              onClick={() => handleFontChange(font_ele)}
+              className={`${font_ele == font ? 'bg-[#d7923c] text-white' :''} px-2 py-1 m-1 border rounded`}
             >
-              {font.replace("font-", "")} AA
+              {font_ele.replace("font-", "")} AA
             </button>
           ))}
         </div>
@@ -49,7 +49,7 @@ const index = ({ onClose }) => {
                   }
                   }
                   //   className={`${color} p-2 m-1 border rounded`}
-                  className='p-2 m-1 rounded border my-2  flex gap-2 '
+                  className={`${color == backgroundColor ?  'bg-[#d7923c]' :''} p-2 m-1 rounded border my-2  flex gap-2 `}
                   >
                     {/* {color.replace("bg-", "")} */}
                     <div className = {`${color} p-2 rounded-full`}> </div>
