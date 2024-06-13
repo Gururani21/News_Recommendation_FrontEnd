@@ -37,7 +37,7 @@ export function BentoGridPost({ postheader }: BenotGridPostPropTypes) {
         params: { image_url: true, category: "sports" },
       })
     ).data;
-    console.log(res);
+    console.log("from bentogrid", res.data);
     setnewslst(res.data);
     setisLoading(false);
   };
@@ -62,6 +62,7 @@ export function BentoGridPost({ postheader }: BenotGridPostPropTypes) {
             header= {Skeleton(item.image_url)}
             icon={renderBadge(item.category)}
             className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+            news_id = {item.news_id}
           />
         ))}
       </BentoGrid>
