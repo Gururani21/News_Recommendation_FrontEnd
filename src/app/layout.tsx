@@ -34,7 +34,7 @@ export default function RootLayout({
         <div className=' mt-0 '>
         <CustomizeButton />
 
-        <div className='px-12 max-w-screen-xl mx-auto'>
+        <div className='px-3 md:px-12 max-w-screen-xl mx-auto'>
 
           <main>{children}</main>
           <ToastContainer />

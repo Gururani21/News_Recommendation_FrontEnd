@@ -13,11 +13,12 @@ const renderBadge = (res:string[])=>{
 }
 const CardWithLeftSideText = ({news}:CardWithLeftSideTextPropType) => {
   return (
+    <div className = 'h-full w-full'>
     <Link 
     href={"/news/" + news.news_id} 
     passHref
     >
-    <div className='w-full lg:max-w-full lg:flex rounded-md hover:cursor:pointer'>
+    <div className='w-full lg:max-w-full lg:flex rounded-md hover:cursor-pointer'>
       <div
         className='min-h-fit lg:w-60 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'
         style={{
@@ -40,6 +41,7 @@ const CardWithLeftSideText = ({news}:CardWithLeftSideTextPropType) => {
       </div>
     </div>
     </Link>
+    </div>
   );
 };
 

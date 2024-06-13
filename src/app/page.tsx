@@ -31,7 +31,7 @@ export default function Home() {
   const { font, backgroundColor, textColor } = useTheme();
 
   return (
-    <div className={`${font} ${backgroundColor} ${textColor} min-h-screen px-6 sm:px-12 md:px-24`}>
+    <div className={`${font} ${backgroundColor} ${textColor} min-h-screen px-6 sm:px-6 md:px-12`}>
       <div className={`${font} ${textColor} ${backgroundColor}`}>
 
         <main>

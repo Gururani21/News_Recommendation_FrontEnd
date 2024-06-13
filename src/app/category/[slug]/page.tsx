@@ -1,4 +1,5 @@
 "use client";
+import { useTheme } from "@/app/context/ThemeContext";
 import Header from "@/components/common/header/index";
 import CardWithTopImg from "@/components/ui/Card/CardWithTopImg";
 import DivSeprater from "@/components/ui/DivSeprater/DivSeprater";
@@ -10,6 +11,8 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const CategoryPages = () => {
+  const { font, backgroundColor, textColor } = useTheme();
+
   const params = useParams();
   const [data, setdata] = useState<NewsDataType[]>([]);
   const renderCategoryName = () => {
@@ -57,8 +60,8 @@ const CategoryPages = () => {
   return (
     <div>
       <Header />
-      <div className='px-6 md:px-12 grid grid-cols-4 gap-8'>
-        <div className='col-span-3 pr-12 border-r-2 '>
+      <div className={`${font} ${textColor} ${backgroundColor} mt-3 px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8`}>
+        <div className='col-span-3 pr-0 md:pr-12 border-r-2 '>
           <div className=''>{renderCategoryName()}</div>
           <div className=''>
             <div className='grid grid-cols-1 gap-8 pr-12 '>

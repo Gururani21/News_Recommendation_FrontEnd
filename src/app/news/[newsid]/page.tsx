@@ -53,7 +53,7 @@ const NewsArticle = () => {
     {
     data && (
       <div className = {`${font} ${backgroundColor} ${textColor}`}>
-        <div className='px-6 md:px-12 pb-8'>
+        <div className='px-3 md:px-12 pb-8'>
           <div className='max-w-3xl mx-auto  pb-12'>
             <div className='w-4/5 mx-auto'>
               <div className=' h-full  mx-auto  my-8'>
