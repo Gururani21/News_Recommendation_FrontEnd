@@ -4,6 +4,7 @@ import CardWithTopImg from "@/components/ui/Card/CardWithTopImg";
 import DivSeprater from "@/components/ui/DivSeprater/DivSeprater";
 import { NewsDataType } from "@/types/news";
 import appconfig from "@/utils/config";
+import userEvent from "@/utils/userEvent";
 import axios from "axios";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -25,7 +26,10 @@ const CategoryPages = () => {
   const getNewsData = async () => {
     const res = (
       await axios.get(appconfig.url + "/getNews", {
-        params: { image_url: true, category: params.slug.toString().toLowerCase() },
+        params: {
+          image_url: true,
+          category: params.slug.toString().toLowerCase(),
+        },
       })
     ).data;
     console.log(res);
@@ -35,14 +39,13 @@ const CategoryPages = () => {
   };
   useEffect(() => {
     getNewsData();
+    userEvent.getUserHistory();
 
     return () => {};
   }, []);
 
   const renderCardsList = () => {
-    return data.map((item, i) => (
-      <CardWithTopImg key={i}  news={item}/>
-    ));
+    return data.map((item, i) => <CardWithTopImg key={i} news={item} />);
   };
 
   const renderRecentlyViewed = () => {
@@ -50,7 +53,7 @@ const CategoryPages = () => {
       <Link
         // href={"/politics"}
         // href={`/${category}`}
-         href={""}
+        href={""}
         className='text-[color:var(--ast-global-color-0)] text-xs'
         key={i}
       >
