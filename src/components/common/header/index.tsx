@@ -6,6 +6,7 @@ import Modal from "@/components/ui/Modal/index";
 import SignupForm from "@/components/ui/SignupForm/index";
 import { NewsDataType } from "@/types/news";
 import appconfig from "@/utils/config";
+import userEvent from "@/utils/userEvent";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,24 +45,45 @@ const Header = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [isSearch, setSearch] = useState(false);
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   //@ts-ignore
   const { font, backgroundColor, textColor } = useTheme();
   const [data, setdata] = useState<NewsDataType[]>([]);
-  const getheroSection = async () => {
+  const [searchText, setSearchtext] = useState("");
+  const search = async (text: string) => {
     // setIsLoading(true);
     const res = (
-      await axios.get(appconfig.url + "/getNews", {
-        params: { image_url: true, category: "top" },
+      await axios.get(appconfig.url + "/searchNews", {
+        params: { image_url: true, search: text },
       })
     ).data;
     console.log(res);
     setdata(res.data);
     //setIsLoading(false);
   };
+  const setlogin = () => {
+    const str = localStorage.getItem("user");
+    if (str === null) {
+      setIsLogin(false);
+    } else {
+      setIsLogin(true);
+    }
+  };
+  const logout = () => {
+    localStorage.removeItem("user");
+  };
   useEffect(() => {
-    getheroSection();
+    setlogin();
+    //userEvent.saveUserEvnet("7d6d2bfd-07fe-4f3a-b2ea-8bc1b37b4292", "History");
   }, []);
+  const handleLogin = () => {
+    if (isLogin) {
+      logout();
+    } else {
+      setModalOpen(true);
+    }
+    setIsLogin(!isLogin);
+  };
 
   const renderNavList = () => {
     return navList.map((navitem, i) => (
@@ -90,9 +112,9 @@ const Header = () => {
           </button>
           <button
             className=' px-4 py-2 backdrop-blur-sm border border-black rounded-md hover:shadow-[0px_0px_4px_4px_rgba(0,0,0,0.1)] bg-white/[0.2] text-sm transition duration-200'
-            onClick={() => setModalOpen(!modalOpen)}
+            onClick={handleLogin}
           >
-            Login
+            {isLogin ? "Logout" : "LogIn"}
           </button>
         </div>
 
@@ -191,10 +213,17 @@ const Header = () => {
               className='block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
               placeholder='Search Mockups, Logos...'
               required
+              onChange={(e) => {
+                setSearchtext(e.target.value);
+              }}
             />
             <button
               type='submit'
               className='text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+              onClick={(e) => {
+                e.preventDefault();
+                search(searchText);
+              }}
             >
               Search
             </button>
