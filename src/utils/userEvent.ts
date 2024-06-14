@@ -21,7 +21,9 @@ const getUserHistory = async () => {
   console.log(User);
 
   await axios
-    .get("http://localhost:5000" + "/userHistory/jgynv3FmEyYzpiH0mRdVtivir953")
+    .get(appconfig.url + "/userHistory/jgynv3FmEyYzpiH0mRdVtivir953", {
+      data: { type: "History" },
+    })
     .then((res) => {
       console.log(res);
       return res.data;
