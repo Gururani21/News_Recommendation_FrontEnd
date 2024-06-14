@@ -14,27 +14,35 @@ const renderBadge = (res:string[])=>{
 }
 const CardWithLeftSideText = ({news, isSearch=false}:CardWithLeftSideTextPropType) => {
   return (
-    <Link href={"/news/" + news.news_id} passHref>
-      <div className='w-full lg:max-w-full lg:flex rounded-md hover:cursor:pointer'>
-        {!isSearch && (
-          <div
-            className='min-h-fit lg:w-60 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'
-            style={{
-              backgroundImage: `url("${news.image_url}")`,
-            }}
-            title='Forest'
-          ></div>
-        )}
-        <div className='border-r border-b border-l   rounded-b lg:rounded-b-none lg:rounded-r px-4 flex flex-col justify-between leading-normal py-4'>
-          <div>{renderBadge(news.category)}</div>
-          <div className='font-bold text-xl'>{news.title}</div>
-          <div className='flex justify-normal gap-4 text-xs font-extralight'>
-            <span>{news.creator} </span>
-            <span>{news.pubDate}</span>
-          </div>
+    <div className = 'h-full w-full'>
+    <Link 
+    href={"/news/" + news.news_id} 
+    passHref
+    >
+    <div className='w-full lg:max-w-full lg:flex rounded-md hover:cursor-pointer'>
+      <div
+        className='min-h-fit lg:w-60 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'
+        style={{
+          backgroundImage:
+            `url("${news.image_url}")`,
+        }}
+        title='Forest'
+      ></div>
+      <div className='border-r border-b border-l   rounded-b lg:rounded-b-none lg:rounded-r px-4 flex flex-col justify-between leading-normal py-4'>
+        <div>
+         {renderBadge(news.category)}
+        </div>
+        <div className='font-bold text-xl'>
+       {news.title}
+        </div>
+        <div className='flex justify-normal gap-4 text-xs font-extralight'>
+          <span>{news.creator} </span>
+          <span>{news.pubDate}</span>
         </div>
       </div>
+    </div>
     </Link>
+    </div>
   );
 };
 

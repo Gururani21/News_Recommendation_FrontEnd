@@ -13,8 +13,12 @@ const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
   if(!news)return;
 
   return (
-    <Link href={"/news/" + news.news_id} passHref>
-      <div className=' relative hover:cursor-pointer '>
+    <div className="h-full w-full">
+    <Link 
+
+    href={"/news/" + news.news_id} 
+    passHref>
+      <div className=' relative hover:cursor-pointer  h-full'>
         {/* Overlay */}
         <div className='absolute w-full h-full   text-white'>
           <div className='absolute bottom-4 right-4 left-4'>
@@ -29,7 +33,7 @@ const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
           </div>
         </div>
         <img
-          className='  min-h-[450px] w-full object-cover shadow-md rounded-sm'
+          className='  min-h-[450px] h-full w-full object-cover shadow-md rounded-sm'
           src={
             news.image_url ||
             "https://websitedemos.net/business-blog-04/wp-content/uploads/sites/895/2021/06/business-blog-latest-news-image-1.jpg"
@@ -38,7 +42,9 @@ const CardWithBgImg = ({news}:CardWithBgImgPropType) => {
         />
       </div>
     </Link>
-  );
-};
+    </div>
+  )
+}
+
 
 export default CardWithBgImg;

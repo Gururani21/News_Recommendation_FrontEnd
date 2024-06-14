@@ -28,18 +28,23 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <ThemeProvider>
-          <div className=' mt-0 '>
-            <CustomizeButton />
+     
+     
+      <ThemeProvider>
+        <div className=' mt-0 '>
+        <CustomizeButton />
 
-            <div className='px-12 max-w-screen-xl mx-auto'>
-              <main>{children}</main>
-              <ToastContainer />
-            </div>
-            <div className=' bg-gray-900'>
-              <Footer />
-            </div>
-          </div>
+        <div className='px-3 md:px-12 max-w-screen-xl mx-auto'>
+
+          <main>{children}</main>
+          <ToastContainer />
+        </div>
+        <div className=' bg-gray-900'>
+          <Footer />
+        </div>
+        </div>
+
+        
         </ThemeProvider>
       </body>
     </html>

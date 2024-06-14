@@ -8,6 +8,8 @@ const backgroundColors = ["bg-white", "bg-gray-100", "bg-green-50", "bg-black", 
 const textColors = ["black", "gray-800", "green-800", "white", "sky-800", "amber-800"]
 const midColors = ["slate-500", "gray-500", "green-500", "slate-500", "sky-500", "amber-500"]
 const darkClr = ["bg-black", "bg-gray-800", "bg-green-800", "bg-white", "bg-sky-800", "bg-amber-800"]
+const midBgColors = ["bg-slate-500", "bg-gray-500", "bg-green-500", "bg-slate-500", "bg-sky-500", "bg-amber-500"]
+
 
 const index = ({ onClose }) => {
   const { font, backgroundColor, handleFontChange, handleBackgroundColorChange, handleTextColorChange } = useTheme();
@@ -53,7 +55,7 @@ const index = ({ onClose }) => {
                   >
                     {/* {color.replace("bg-", "")} */}
                     <div className = {`${color} p-2 rounded-full`}> </div>
-                    <div className = {`bg-${midColors[i]} p-2 rounded-full`}></div>
+                    <div className = {`${midBgColors[i]} p-2 rounded-full`}></div>
                     {/* <div className = {`bg-${textColors[i]} p-2 rounded-full`}></div> */}
                     <div className = {`${darkClr[i]} p-2 rounded-full`}></div>
 

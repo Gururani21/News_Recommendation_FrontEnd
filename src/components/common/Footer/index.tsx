@@ -60,8 +60,9 @@ const Footer = () => {
               </div>
 
               <p className='mt-4 max-w-xs  text-gray-400'>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-                non cupiditate quae nam molestias.
+           
+             
+              News Recommendation System application  providing personalized news recommendations based on user preferences and behavior.
               </p>
 
               <ul className='mt-8 flex gap-6'>

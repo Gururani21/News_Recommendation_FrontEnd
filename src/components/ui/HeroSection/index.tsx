@@ -39,11 +39,12 @@ const HeroSection = () => {
       
 
 
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        <div className='h-full'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 h-full'>
+        <div className='flex flex-col flex-grow'>
           <CardWithBgImg news={data[0]} />
         </div>
-        <div className='grid gap-4'>
+        {/* <div className='grid gap-4 min-h-full'> */}
+        <div className='flex flex-col gap-4 flex-grow '>
           {renderleftSide()}
           {/* <CardWithLeftSideText />
           <CardWithLeftSideText /> */}

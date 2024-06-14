@@ -58,7 +58,7 @@ const NewsArticle = () => {
   }
   const rendercontent = (content: string[]) => {
     return content.map((x) => (
-      <p className='text-sm text-[color:var(--ast-global-color-3)] my-4'>{x}</p>
+      <p className={`text-sm ${textColor} my-4`}>{x}</p>
     ));
   };
   const renderKeywords = (keywords: string[]) => {
@@ -71,7 +71,7 @@ const NewsArticle = () => {
     {
     data && (
       <div className = {`${font} ${backgroundColor} ${textColor}`}>
-        <div className='px-6 md:px-12 pb-8'>
+        <div className='px-3 md:px-12 pb-8'>
           <div className='max-w-3xl mx-auto  pb-12'>
             <div className='w-4/5 mx-auto'>
               <div className=' h-full  mx-auto  my-8'>
@@ -89,12 +89,12 @@ const NewsArticle = () => {
                 <h2 className='text-xl  font-semibold'>{data.title}</h2>
 
                 <span className='text-xs text-[color:var(--ast-global-color-0)] '>
-                  Leave a Comment / Editors Pick, Politics / By akbarh
+                  Leave a Comment / Editors Pick, {data.category} / By {data.source_id}
                 </span>
 
                 <div className=''>{renderKeywords(data.keywords)}</div>
 
-                <div className='my-8'>{rendercontent(data.content)}</div>
+                <div className={`my-8 ${textColor}`}>{rendercontent(data.content)}</div>
               </div>
             </div>
           </div>
